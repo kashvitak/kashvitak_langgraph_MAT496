@@ -38,3 +38,10 @@ in the graph, we use conditional edge and gives us 2 options for nodes;
 when we give a message out to the model, it can decide whether the question has an input schema related to the call, if it does, it goes to the tool node and then in a loop back to the model, to check if the question uses any more tools and if not it goes to the other node which is end.
 
 we also saw in the video how we can see our traces in langsmith of every input we gave to the model.
+
+notebook5- 
+agent memory:
+
+it uses thread in which checkpoints are associated together;
+we put in a message and the tool is activated, it gives an answer, if we ask a question using reference to that answer, the model will simply give either incorrect answer or say something like question incomplete.
+But, when we use threads, the answer given earlier by the model in the graph is saved in the memeory as a checkpoint whose refernce can be used later in another question to get a correct answer.
