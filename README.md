@@ -21,3 +21,11 @@ it teaches us to use messages as a graph state;
 we use tools for the model to give us an output,
 we define a tool and the model looks for a tool the fulfils the required input schema and then it gives the output based on the schema.
 we also used reducer function here, which is used when instead of ovverwriting the graph state, our node will just append the graph state so that it preserves the whole convo.
+
+
+notebook3-
+router:
+
+router is basically a graph, which has a conditional edge;
+it either takes the node which used a tool that we have defined to respond to the human messgae if the message is in schema of the tool;
+or, it used natural language to answer to the human message as the second node;
