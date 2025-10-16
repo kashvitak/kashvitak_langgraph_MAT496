@@ -29,3 +29,12 @@ router:
 router is basically a graph, which has a conditional edge;
 it either takes the node which used a tool that we have defined to respond to the human messgae if the message is in schema of the tool;
 or, it used natural language to answer to the human message as the second node;
+
+
+notebook4-
+agent:
+we build an agent that helps us make sequential tool calls;
+in the graph, we use conditional edge and gives us 2 options for nodes;
+when we give a message out to the model, it can decide whether the question has an input schema related to the call, if it does, it goes to the tool node and then in a loop back to the model, to check if the question uses any more tools and if not it goes to the other node which is end.
+
+we also saw in the video how we can see our traces in langsmith of every input we gave to the model.
