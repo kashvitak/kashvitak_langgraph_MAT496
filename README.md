@@ -13,3 +13,11 @@ it tells us about state and node.
 state is basically a dictionary with one key which is the graph state
 and, node is what takes the value of the state and overrites the value of the graph state.
 the normal edge is an edge that is implemented in every possibilites, but a conditional edge is implemented according to the probabilities and the condiditions specified.
+
+notebook 2-
+chains:
+
+it teaches us to use messages as a graph state;
+we use tools for the model to give us an output,
+we define a tool and the model looks for a tool the fulfils the required input schema and then it gives the output based on the schema.
+we also used reducer function here, which is used when instead of ovverwriting the graph state, our node will just append the graph state so that it preserves the whole convo.
