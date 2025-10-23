@@ -81,3 +81,18 @@ multiple schemas
 whatever is not in the overallstate will not be included in the output
 
 we also used typed input and output schemas
+
+notebook4-
+trim-filter-messages
+
+A simple way to use prebuilt add_message reducer that we have built in messagestate along with removemessage to delete messages by id from message queue
+
+we can just ask the llm to graph a particular message from the message list
+
+during long messages, there is high token usage so we can use reducers;
+
+useing filters which can filter the entire convo in and take the required imput from that to minimize token usage;
+
+trim messages based upon a specified number of tokens;
+it trims the conversation that is to be put in  the input based on the number of tokens you specify;
+allow_partial is used to state weather to cut the convo from between or not
