@@ -72,3 +72,12 @@ reducers allow us to specify how to perform state updates
 allows us to append rather than override
 the add_messages reducer allows us to append messages to the messages key in our state
 if we give an id to a msg same as an existing msg, the msgwill get overriden
+
+notebook3-
+multiple schemas
+
+(state: state1) -> state2:
+(this typehint means taking in state 1 but writing out to state 2)
+whatever is not in the overallstate will not be included in the output
+
+we also used typed input and output schemas
