@@ -91,6 +91,22 @@ we can just ask the llm to graph a particular message from the message list
 
 during long messages, there is high token usage so we can use reducers;
 
+notebook 5-
+chatbot summarization
+
+creating a key called summary in the messages_state (not using the built in message key)
+summary contains the summary of the conversation
+
+we have an assistant that has the ability to summarize once the conversation gets too long( after 6 messages in this case)
+and the running summary lives in state
+
+we use a checkpointer to persist state through time so we can keep having this conversation with this assistant over time
+and we are gonna produce running summary so that this conversation never gets too long to exceed token limit
+
+when we take a look at the tracing, we see that as we pass an input, we also get the previous conversation along with that which has been stored in the state as a checkpointer;
+as soon as we reach to 6 messages in this case, we can see that a summary is produced in a kind of continuously updated summarization state
+
+
 useing filters which can filter the entire convo in and take the required imput from that to minimize token usage;
 
 trim messages based upon a specified number of tokens;
