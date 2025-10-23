@@ -45,3 +45,19 @@ agent memory:
 it uses thread in which checkpoints are associated together;
 we put in a message and the tool is activated, it gives an answer, if we ask a question using reference to that answer, the model will simply give either incorrect answer or say something like question incomplete.
 But, when we use threads, the answer given earlier by the model in the graph is saved in the memeory as a checkpoint whose refernce can be used later in another question to get a correct answer.
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+MODULE 2:
+
+notebook1-
+schema is the sturcture and types of datatype the graph will use;
+state is passed into stategraph;
+there are 3 major types to establish schema for your graph that are defined in this nb-
+1. typedict
+2. python's dataclasses
+3. pydantic
+the problem with typedict and dataclass is that type hints are not actually enforced at runtime
+so it is possible to assign an invalid value without raising an error
+
+here, pydantic comes in;
+it is used to provide data validation.
