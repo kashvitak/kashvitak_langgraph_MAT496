@@ -61,3 +61,14 @@ so it is possible to assign an invalid value without raising an error
 
 here, pydantic comes in;
 it is used to provide data validation.
+
+notebook 2-
+state reducers
+
+reducers- define how updates are performed on specific keys or channels in our schema
+when we make updates, we override the prior value
+simulataneous updates in the same key in the same step is ambiguous because you are overriding th value with 2 different nodes at the same time;
+reducers allow us to specify how to perform state updates
+allows us to append rather than override
+the add_messages reducer allows us to append messages to the messages key in our state
+if we give an id to a msg same as an existing msg, the msgwill get overriden
