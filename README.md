@@ -106,9 +106,13 @@ and we are gonna produce running summary so that this conversation never gets to
 when we take a look at the tracing, we see that as we pass an input, we also get the previous conversation along with that which has been stored in the state as a checkpointer;
 as soon as we reach to 6 messages in this case, we can see that a summary is produced in a kind of continuously updated summarization state
 
+notebook 6-
+SQLite is a popular SQL database 
+and used for working with external database checkpointers
+benefit of SQLite checkpointer- we are writing to a local databse on a machine, so its persisted over time
 
-useing filters which can filter the entire convo in and take the required imput from that to minimize token usage;
+if, we were to restart the kernel, the memory will be removed from the history if we would have been using a internal checkpointer,
+but since we are using SQLite which is an external checkpointer, the state will be locally saved in the machine
 
-trim messages based upon a specified number of tokens;
-it trims the conversation that is to be put in  the input based on the number of tokens you specify;
-allow_partial is used to state weather to cut the convo from between or not
+when we go to studio in this, we can see that we have local persistence through postgress in this particular case because the langgraph API is packaging our code with a persistence layer automatically that is serving the studio here and it can manage all our threads through studio
+
