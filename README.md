@@ -118,7 +118,7 @@ when we go to studio in this, we can see that we have local persistence through 
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 MODULE 3
-Notebook1- streaming-interruption
+-Notebook1- streaming-interruption
 
 There are 2 ways to stream the state,
 one is updates where we just stream the updates to state after each node is called
@@ -129,4 +129,14 @@ if its is messages/partial, we do processing i.e we get the data from that
 
 we are streaming the output or messages from the chat model whether they're just tool calls or whether they're just natural language processing.
 
+-Notebook2-breakpoints
 
+how breakpoints work-
+u can stop a graph at any node,
+then u can proceed just by passing none with a thread id and it will pick back up from the current state of the graph
+
+we can pass interrupt_brefore to our agent through the API
+
+using the API we can do two things-
+one, we can pass the interrupts via just the arguments
+or, we can define it in the code.
