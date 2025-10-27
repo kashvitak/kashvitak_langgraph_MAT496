@@ -155,3 +155,13 @@ in studio, we can manually add interrupt at any point in the graph
 
 we can also get user input to modify the state
 by using dummy node also called as no-op node taht will accept the user feedback and inject it into our graph at a particular point.
+
+--------Notebook4- dynamic-breakpoints----------
+
+we can have the graph to be able to interrupt itself- internal breakpoint
+that breakpoint will be based on some condition
+
+the above can be done by using NodeInterrupt
+
+we can bypass our NodeInterrupt by updating the state and then continuing to the graph;
+which means, an interruption will be there due to not following some condition and to bypass that state or to move on from it, we will need our input to follow that condition, so we will update our input to follow that condition so that our graph can move forward.
