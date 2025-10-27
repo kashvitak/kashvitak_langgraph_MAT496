@@ -165,3 +165,28 @@ the above can be done by using NodeInterrupt
 
 we can bypass our NodeInterrupt by updating the state and then continuing to the graph;
 which means, an interruption will be there due to not following some condition and to bypass that state or to move on from it, we will need our input to follow that condition, so we will update our input to follow that condition so that our graph can move forward.
+
+-----Notebook5- time-travel-------
+
+time travel is
+how langgraph supports debudding by viewing, replaying and even forking prior states
+
+we can use get_states_histro to get history of states at every step that our agent took
+
+when we call graph.get_state, we get the current and most recent checkpoint
+
+graph.get_history, we get the list of StateSnapshots or checkpoints that the graph has executed
+
+we can also replay our agent from any of its prior state
+we can pass a checkpoint id along with the thread id and the graph will kick off from a particular checkpoint
+we can rewind from any checkpoint within the thread
+if we just pass the thread id it will just pick the current state of the thread
+
+the execution when checkpoint also put in is very fast because we are not re-executing anything we are just replaying from the human inout
+
+we can rewind and fork a prior checkpoint and not just the current one
+we can do that by updating the state, passing that checkpoint id in
+
+when we do update_state, the reducer add_messages will append the message unless we provide the ID and then it will overwrite
+
+as we run update_states, we are adding new forked checkpoints to this list in our thread
