@@ -116,3 +116,17 @@ but since we are using SQLite which is an external checkpointer, the state will 
 
 when we go to studio in this, we can see that we have local persistence through postgress in this particular case because the langgraph API is packaging our code with a persistence layer automatically that is serving the studio here and it can manage all our threads through studio
 
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+MODULE 3
+Notebook1- streaming-interruption
+
+There are 2 ways to stream the state,
+one is updates where we just stream the updates to state after each node is called
+the other is values, which is the full state after each node is called.
+
+if event is metadata, we are printing that out
+if its is messages/partial, we do processing i.e we get the data from that
+
+we are streaming the output or messages from the chat model whether they're just tool calls or whether they're just natural language processing.
+
+
