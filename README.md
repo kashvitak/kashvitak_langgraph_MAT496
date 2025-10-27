@@ -118,7 +118,7 @@ when we go to studio in this, we can see that we have local persistence through 
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 MODULE 3
--Notebook1- streaming-interruption
+-----Notebook1- streaming-interruption----
 
 There are 2 ways to stream the state,
 one is updates where we just stream the updates to state after each node is called
@@ -129,7 +129,7 @@ if its is messages/partial, we do processing i.e we get the data from that
 
 we are streaming the output or messages from the chat model whether they're just tool calls or whether they're just natural language processing.
 
--Notebook2-breakpoints
+------Notebook2-breakpoints------
 
 how breakpoints work-
 u can stop a graph at any node,
@@ -140,3 +140,18 @@ we can pass interrupt_brefore to our agent through the API
 using the API we can do two things-
 one, we can pass the interrupts via just the arguments
 or, we can define it in the code.
+
+--------Notebook3- edit-state-human-feedback----
+
+Apart from approval to proceed, breakpoints also provide us with an opportunity to actually modify the graph state because the graph state is stopped and we can manipulate and grab the state as we want.
+
+we can apply state update
+and then choose to look at the new state of the graph
+
+we interrupt before assistant in this module,
+so we run the message and we only get the human message as we are interrupted before the assistant where we can modify our state if we want and then we proceed and apply tool call if so and go back to the assistant node and stop again as it is interrupted again and we have to give it permission again.
+
+in studio, we can manually add interrupt at any point in the graph
+
+we can also get user input to modify the state
+by using dummy node also called as no-op node taht will accept the user feedback and inject it into our graph at a particular point.
