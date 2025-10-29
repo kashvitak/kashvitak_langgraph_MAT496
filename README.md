@@ -185,8 +185,20 @@ if we just pass the thread id it will just pick the current state of the thread
 the execution when checkpoint also put in is very fast because we are not re-executing anything we are just replaying from the human inout
 
 we can rewind and fork a prior checkpoint and not just the current one
-we can do that by updating the state, passing that checkpoint id in
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-when we do update_state, the reducer add_messages will append the message unless we provide the ID and then it will overwrite
+MODULE 4
 
-as we run update_states, we are adding new forked checkpoints to this list in our thread
+-----Notebook1- parallelization------
+
+When we do parallel node operations and writing the same key or channel in your state, we need to use a reducer that will handle the simultaneous updates;
+when we fan out, all the branches must finish changing state before fanning back in and the next node changing the state;
+
+we can customize the order of the updates when they're within the same step using a custom reducer using parallelization, 
+we can retrieve information from multiple sources and aggregate it in a particular key(for example) and use that later for generating answer using LLM
+we can do that by updating the state, passing that checkpoint id in;
+
+when we do update_state, the reducer add_messages will append the message unless we provide the ID and then it will overwrite.
+as we run update_states, we are adding new forked checkpoints to this list in our thread;
+
+
