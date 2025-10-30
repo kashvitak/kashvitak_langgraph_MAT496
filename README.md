@@ -201,4 +201,12 @@ we can do that by updating the state, passing that checkpoint id in;
 when we do update_state, the reducer add_messages will append the message unless we provide the ID and then it will overwrite.
 as we run update_states, we are adding new forked checkpoints to this list in our thread;
 
+-----Notebook2- sub-graph--------
+
+subgraphs allow us to create and manage different states within different parts of your graph which is useful for multiagent systems; 
+
+overlapping keys allow the main graph(entry graph) to communicate with the subgraphs 
+and also the subgraphs to communicate back to the entry graph.
+
+when we define overall state for the entry graph, cleanes_log doesn't need a reducer because that's not present in the output schema of each subgraph.
 
