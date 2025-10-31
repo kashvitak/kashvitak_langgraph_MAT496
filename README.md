@@ -228,3 +228,20 @@ one is that the lost can be arbitrarily long, so this could be any number of sub
 the other is that we can pass arbitrary things in
 
 when we run the graph in studio, we can see a continue_to_fact conditional edge, we pass a list of subjects  and it created basically a bunch of call to the generate_facts node that passed each of the subjects from that list in.
+
+------Notebook4-Reasearch_assistant----
+
+source selection,giving the system access to arbitrary sources using web serach tools;
+a planning process where we take a topic given by the user, break that up into some set of subtopics and assign an AI analyst to each subtopic;
+orchestrating a dialogue between each of our analyst and an and an expert that has access to the sources;
+using map reduce to bring the resuts together at the end;
+
+we create some analyst based upon user provided topic, human feedback refines them, then we kick of research automation where each analyst conducts research in parallel with an expert that has access to external sources then the reduce phase brings all those independent research together into final report;
+
+when we run our graph, we pause at human feedback node, await feedback and if we pass in any feedback, we'll go back and recreate analysts and start again;
+
+the analyst persona is concatenation of the analysts, identity and goals, we pass that in so that when we're creating questions, the analyst knows who they are and they know what their perspective is;
+
+when the question goes to search Wikipedia and search web in the graph, we take the message history and distill it into a high quality seach query and then hit our sources with that search query and return results to context;
+
+we add control to parallelize all the interviews for all of our analysts;
