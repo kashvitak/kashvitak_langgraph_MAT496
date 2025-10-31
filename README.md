@@ -210,3 +210,21 @@ and also the subgraphs to communicate back to the entry graph.
 
 when we define overall state for the entry graph, cleanes_log doesn't need a reducer because that's not present in the output schema of each subgraph.
 
+-----Notebook3-map-reduce--------
+map reduce is basically an efficient task, decomposition and parallel processing method,
+it has two phases- one is map phase: takes some task, break into a bunch of subtasks and do them all in parallel
+reduce: aggregate the results from all those parallelized subtasks and bring them back together
+
+we have useds subjects and bestfacts(i have taken) as two schemas
+subjtect- list of subject
+bestfacts- is Id or index of the best fact from the resulting list of overall facts 
+
+the overall state will contain the topic provided by the user, list of subjects and facts which has a reducer that will append to the list
+
+we're fanning out to a bunch of nodes that will produce facts and they're going to write to the same list
+then we use that list later to select the best one
+the Send API is of two uses here,
+one is that the lost can be arbitrarily long, so this could be any number of subject and it'll automatically spawn a generate fact mode effectively for every element that list and run generate fact
+the other is that we can pass arbitrary things in
+
+when we run the graph in studio, we can see a continue_to_fact conditional edge, we pass a list of subjects  and it created basically a bunch of call to the generate_facts node that passed each of the subjects from that list in.
