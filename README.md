@@ -201,6 +201,10 @@ we can do that by updating the state, passing that checkpoint id in;
 when we do update_state, the reducer add_messages will append the message unless we provide the ID and then it will overwrite.
 as we run update_states, we are adding new forked checkpoints to this list in our thread;
 
+CHANGES-
+I changed the nodes in the graph 
+and the question
+
 -----Notebook2- sub-graph--------
 
 subgraphs allow us to create and manage different states within different parts of your graph which is useful for multiagent systems; 
@@ -209,6 +213,9 @@ overlapping keys allow the main graph(entry graph) to communicate with the subgr
 and also the subgraphs to communicate back to the entry graph.
 
 when we define overall state for the entry graph, cleanes_log doesn't need a reducer because that's not present in the output schema of each subgraph.
+
+CHANGES-
+I changed the Question, answer and feedback, grader, grade in the dummy logs
 
 -----Notebook3-map-reduce--------
 map reduce is basically an efficient task, decomposition and parallel processing method,
@@ -229,6 +236,11 @@ the other is that we can pass arbitrary things in
 
 when we run the graph in studio, we can see a continue_to_fact conditional edge, we pass a list of subjects  and it created basically a bunch of call to the generate_facts node that passed each of the subjects from that list in.
 
+CHANGES-
+i used it for "facts" instead of "jokes"
+and coustomised all the nodes and edges to fact.
+i changed the topic
+
 ------Notebook4-Reasearch_assistant----
 
 source selection,giving the system access to arbitrary sources using web serach tools;
@@ -245,3 +257,10 @@ the analyst persona is concatenation of the analysts, identity and goals, we pas
 when the question goes to search Wikipedia and search web in the graph, we take the message history and distill it into a high quality seach query and then hit our sources with that search query and return results to context;
 
 we add control to parallelize all the interviews for all of our analysts;
+
+CHANGES-
+I added one more property in the base model of the analyst
+changed the topic of the research, max analysts
+changed the human_feedback node
+the question_instructions as well
+the answer_instructions also
